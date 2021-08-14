@@ -36,7 +36,9 @@ Create helloWorld.cpp
 $ nvim helloWorld.cpp
 ```
 
-Type the following progam
+Type the following progam:
+
+helloWorld.cpp
 ``` cpp
 #include<iostream>
 
@@ -46,4 +48,30 @@ int main() {
 
         return 0;
 }
+```
+
+We need to compile our program, so let's make a makefile
+``` bash
+$ nvim makefile
+```
+
+makefile
+``` make
+CC=g++
+CFLAGS = -Wall -g
+OUTPUT_OPTION=-MMD -MP -o $@
+LDLIBS=-lm
+
+SRC=$(wildcard *.cpp)
+OBJ=$(SRC:.cpp=.o)
+DEP=$(SRC:.cpp=.d)
+
+.PHONY: clean
+
+helloWorld: helloWorld.o
+
+-include $(DEP)
+
+clean:
+        rm -f *~ core $(OBJ) $(DEP) helloWorld
 ```

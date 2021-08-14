@@ -1,17 +1,17 @@
-CC = g++
+CC=g++
 CFLAGS = -Wall -g
-OBJ = helloWorld.o
-
-
-%.o: %.c
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-
-helloWorld: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
-
-
+OUTPUT_OPTION=-MMD -MP -o $@
+LDLIBS=-lm
+ 
+SRC=$(wildcard *.cpp)
+OBJ=$(SRC:.cpp=.o)
+DEP=$(SRC:.cpp=.d)
+ 
 .PHONY: clean
-
+ 
+helloWorld: helloWorld.o
+ 
+-include $(DEP)
+ 
 clean:
-	rm -f *.o *~ core
+	rm -f *~ core $(OBJ) $(DEP) helloWorld
