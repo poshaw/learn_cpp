@@ -90,3 +90,12 @@ If your output shows the following you did it!
 ``` bash
 Hello World!
 ```
+
+Clean up and get ready for the next lesson:
+``` bash
+$ make clean
+$ cd ..
+$ git add helloWorld/
+$ git commit -a -m $(date +%Y%m%d_%H%M)
+git push -u origin main
+```
