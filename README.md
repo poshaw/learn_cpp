@@ -97,5 +97,14 @@ $ make clean
 $ cd ..
 $ git add helloWorld/
 $ git commit -a -m $(date +%Y%m%d_%H%M)
-git push -u origin main
+$ git push -u origin main
 ```
+
+## Variables
+Create Variables folder
+``` bash
+$ mkdir 02_variables && cd $_
+$ cp ../01_helloWorld/makefile .
+```
+
+
