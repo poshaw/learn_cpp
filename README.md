@@ -41,9 +41,9 @@ Type the following progam
 #include<iostream>
 
 int main() {
-    // print hello world
-    cout<<"Hello World\n";
+        // print hello world
+        std::cout<<"Hello World!\n";
 
-    return 0;
+        return 0;
 }
 ```
