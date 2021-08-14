@@ -75,3 +75,18 @@ helloWorld: helloWorld.o
 clean:
         rm -f *~ core $(OBJ) $(DEP) helloWorld
 ```
+
+Now compile using the program
+``` bash
+$ make
+```
+
+And run it!
+``` bash
+$ ./helloWorld
+```
+
+If your output shows the following you did it!
+``` bash
+Hello World!
+```
