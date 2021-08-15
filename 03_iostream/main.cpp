@@ -1,6 +1,6 @@
 #include<iostream>
 
-int main() {
+int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 	std::cout << "Enter a number: "; // ask user for a number
 
 	// define variable x to hold user input (and zero-initialize it)
