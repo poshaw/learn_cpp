@@ -43,10 +43,10 @@ helloWorld.cpp
 #include<iostream>
 
 int main() {
-        // print hello world
-        std::cout<<"Hello World!\n";
+	// print hello world
+	std::cout<<"Hello World!\n";
 
-        return 0;
+	return 0;
 }
 ```
 
@@ -57,23 +57,30 @@ $ nvim makefile
 
 makefile
 ``` make
-CC=g++
-CFLAGS = -Wall -g
-OUTPUT_OPTION=-MMD -MP -o $@
-LDLIBS=-lm
+CXX=g++
+CXXFLAGS=-Wall -Wextra -pedantic
+EXE=helloWorld
 
 SRC=$(wildcard *.cpp)
 OBJ=$(SRC:.cpp=.o)
-DEP=$(SRC:.cpp=.d)
 
 .PHONY: clean
 
-helloWorld: helloWorld.o
+all: $(EXE)
 
--include $(DEP)
+$(EXE): $(OBJ)
+	@$(CXX) -o $@ $(OBJ)
+
+depend: .depend
+
+.depend: $(SRC)
+	@-rm -f ./.depend
+	@$(CXX) $(CXXFLAGS) -MM $^>>./.depend
 
 clean:
-        rm -f *~ core $(OBJ) $(DEP) helloWorld
+	rm -f *~ core $(OBJ) $(EXE) .depend
+
+include .depend
 ```
 
 Now compile using the program
@@ -95,7 +102,7 @@ Clean up and get ready for the next lesson:
 ``` bash
 $ make clean
 $ cd ..
-$ git add helloWorld/
+$ git add 01_helloWorld/
 $ git commit -a -m $(date +%Y%m%d_%H%M)
 $ git push -u origin main
 ```
