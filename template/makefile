@@ -1,17 +1,24 @@
-CC=g++
-CFLAGS = -Wall -g
-OUTPUT_OPTION=-MMD -MP -o $@
-LDLIBS=-lm
- 
+CXX=g++
+CXXFLAGS=-Wall -Wextra -pedantic
+EXE=app
+
 SRC=$(wildcard *.cpp)
 OBJ=$(SRC:.cpp=.o)
-DEP=$(SRC:.cpp=.d)
- 
+
 .PHONY: clean
- 
-main: main.o
- 
--include $(DEP)
- 
+
+all: $(EXE)
+
+$(EXE): $(OBJ)
+	@$(CXX) -o $@ $(OBJ)
+
+depend: .depend
+
+.depend: $(SRC)
+	@-rm -f ./.depend
+	@$(CXX) $(CXXFLAGS) -MM $^>>./.depend
+
 clean:
-	rm -f *~ core $(OBJ) $(DEP) main
+	rm -f *~ core $(OBJ) $(EXE) .depend
+
+include .depend
