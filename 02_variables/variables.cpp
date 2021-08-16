@@ -4,7 +4,7 @@
 int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 	// int
 	{
-		std::cout<<"Integer\n";
+		std::cout<<"int\n";
 
 		// initialize, ie define the variable a as an int and set it's value to 0
 		int a{ 0 }; 
@@ -22,9 +22,9 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 		std::cout<<'\t' << "The maximum value for int on this system is: " << imax << "\n\n";
 	}
 
-	// short int
+	// short
 	{
-		std::cout<<"Short Integer\n";
+		std::cout<<"short\n";
 
 		// initialize, ie define the variable a as an int and set it's value to 0
 		short a{ 0 }; 
@@ -33,7 +33,7 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 		// std::cout<<"The value of a is: " << a << '\n';
 
 		// show the size of ints
-		std::cout<<'\t' << "The size of a short int is: " << sizeof(a) << '\n';
+		std::cout<<'\t' << "The size of a short is: " << sizeof(a) << '\n';
 
 		// min & max values
 		short simin{ std::numeric_limits<short>::min() }; // minimum value
@@ -42,9 +42,9 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 		std::cout<<'\t' << "The maximum value for short int on this system is: " << simax << "\n\n";
 	}
 	
-	// unsigned short int
+	// unsigned short
 	{
-		std::cout<<"Unsigned Short Integer\n";
+		std::cout<<"unsigned short\n";
 
 		// initialize, ie define the variable a as an int and set it's value to 0
 		unsigned short a{ 0 }; 
@@ -53,7 +53,7 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 		// std::cout<<"The value of a is: " << a << '\n';
 
 		// show the size of ints
-		std::cout<<'\t' << "The size of an unsigned short int is: " << sizeof(a) << '\n';
+		std::cout<<'\t' << "The size of an unsigned short is: " << sizeof(a) << '\n';
 		// min & max values
 		unsigned short usimin{ std::numeric_limits<unsigned short>::min() }; // minimum value
 		unsigned short usimax{ std::numeric_limits<unsigned short>::max() }; // maximum value
@@ -61,9 +61,9 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 		std::cout<<'\t' << "The maximum value for unsigned short int on this system is: " << usimax << "\n\n";
 	}
 	
-	// long int
+	// long
 	{
-		std::cout<<"Long Integer\n";
+		std::cout<<"long\n";
 
 		// initialize a long int
 		long int a {0};
@@ -72,7 +72,7 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 		// std::cout<<"The value of a is: " << a << '\n';
 
 		// show the size of long ints
-		std::cout<<'\t' << "The size of a long int is: " << sizeof(a) << '\n';
+		std::cout<<'\t' << "The size of a long is: " << sizeof(a) << '\n';
 
 		// min & max values
 		long int limin{ std::numeric_limits<long int>::min() }; // minimum value
@@ -83,7 +83,7 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 
 	// floats
 	{
-		std::cout<<"Float\n";
+		std::cout<<"float\n";
 
 		// initialize a float
 		float a{3.2};
@@ -96,6 +96,23 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 		float fmax{ std::numeric_limits<float>::max() };
 		std::cout<<'\t' << "The minimum value for float on this system is: " << fmin << '\n';
 		std::cout<<'\t' << "The maximum value for float on this system is: " << fmax << "\n\n";
+	}
+
+	// double
+	{
+		std::cout<<"double\n";
+
+		// initialize a double
+		double a{2.5};
+
+		// show the size of long ints
+		std::cout<<'\t' << "The size of a double is: " << sizeof(a) << '\n';
+
+		// min & max values
+		double dmin{ std::numeric_limits<double>::min() }; // minimum value
+		double dmax{ std::numeric_limits<double>::max() }; // maximum value
+		std::cout<<'\t' << "The minimum value for long int on this system is: " << dmin << '\n';
+		std::cout<<'\t' << "The maximum value for long int on this system is: " << dmax << "\n\n";
 	}
 
 	return 0;
