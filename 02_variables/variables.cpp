@@ -1,9 +1,14 @@
 #include<iostream>
 #include <limits>
 
+static int count { 5 }; 	// static global variables can only be used in this file
+
+
+
 int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[]) {
 	// int
 	{
+		count++;					// incriment global variable count (prevents unused variable compiler warning)
 		std::cout<<"int\n";
 
 		// initialize, ie define the variable a as an int and set it's value to 0
